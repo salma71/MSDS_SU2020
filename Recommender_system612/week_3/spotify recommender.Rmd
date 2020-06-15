@@ -1,0 +1,29 @@
+---
+title: "Music Recommendations at Scale with Spark - Christopher Johnson (Spotify)"
+author: "Salma Elshahawy"
+date: "6/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## How spotify recommender work in the nutshell?
+
+Spotify is using collaborative filtering to create its recommender system, based on the user’s listening history, in tadem with songs enjoyed by users who seem to have a similar history. Additionally, Spotify uses “Taste Analysis Data” to establish a Taste Profile.
+
+Machine learning algorithms in recommender systems are typically classified under two main categories — content based and collaborative filtering. Traditionally, Spotify has relied primarily on collaborative filtering approaches for their recommendations. This works well for Spotify, as it revolves around the strategy of determining user preference from historical behavioral data patterns. 
+
+An example of this is if two users listen to the same sets of songs or artists, their tastes are likely to align. Christopher Johnson outlines the differences between the two in his paper on [Spotify’s algorithm](https://web.stanford.edu/~rezab/nips2014workshop/submits/logmat.pdf). According to Johnson, a Content Based strategy relies on analyzing factors and demographics that are directly associated with the user or product, such as the age, sex and demographic of the user or a song genre or period, such as music in the 70’s or 80’s. Recommendation systems that are based on Collaborative Filtering take consumer behavior data and utilize it to predict future behavior. Unlike Netflix, which from its nascence used a 5 star point rating system, Spotify relied primarily on implicit feedback to train their algorithm. Examples of user data based on implicit feedback can be playing a song on repeat or skipping it entirely after the first 10 seconds.
+
+Spotify further analyzes and applies user data by using a matrix decomposition method, which is also known as matrix factorization. The approach of matrix factorization aims to find answers by ‘decomposing’ (hence the term matrix decomposition) the data into two separate segments. 
+
+The first segment defines the user in terms of marked factors, each of which is weighted differently. The second segment maps between factors and products, which in the Spotify universe are songs, artists, albums and genres, thus defining a factor in terms of the products offered. Each customer has only watched a small percentage of the movies and the overall movies have only been watched by a small percentage of the customers. Based on these assumptions, the learning algorithm needs to be able to generalize and predict successfully.
+
+
+## References:
+
+- [YouTybe conference](https://www.youtube.com/watch?v=3LBgiFch4_g)
+- [Spotify’s algorithm paper published by Christopher Johnson](https://web.stanford.edu/~rezab/nips2014workshop/submits/logmat.pdf)
